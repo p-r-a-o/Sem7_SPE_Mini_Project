@@ -15,8 +15,7 @@ pipeline {
 
     environment {
         // TODO: replace with your values
-        DOCKERHUB_REPO = 'your-dockerhub-username/calculator'
-        EMAIL_TO       = 'student@example.com'
+        DOCKERHUB_REPO = 'pramatharao/spe_mp_calculator'
 
         // Jenkins credentials ID (Username with password) holding the Docker Hub login
         DOCKERHUB_CREDS = 'dockerhub-credentials'
@@ -112,17 +111,17 @@ pipeline {
 
     post {
         success {
-            mail to: "${EMAIL_TO}",
+            mail to: "${env.EMAIL_TO}",
                  subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "Build succeeded and was deployed.\n\nImage: ${env.DOCKERHUB_REPO}:${env.IMAGE_TAG}\nDetails: ${env.BUILD_URL}"
         }
         failure {
-            mail to: "${EMAIL_TO}",
+            mail to: "${env.EMAIL_TO}",
                  subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "Build failed.\n\nCheck the console output: ${env.BUILD_URL}console"
         }
         unstable {
-            mail to: "${EMAIL_TO}",
+            mail to: "${env.EMAIL_TO}",
                  subject: "UNSTABLE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "Build is unstable.\n\nDetails: ${env.BUILD_URL}"
         }
