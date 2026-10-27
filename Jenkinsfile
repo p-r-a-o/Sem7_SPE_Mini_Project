@@ -85,7 +85,7 @@ pipeline {
             steps {
                 // Idempotent: only recreates containers whose image/config changed.
                 // --wait blocks until the compose health checks report healthy.
-                sh 'docker compose up -d --no-build --remove-orphans --wait --wait-timeout 120'
+                sh 'docker compose up -d --no-build --remove-orphans --wait --wait-timeout 300'
 
                 // Verify through the Nginx proxy
                 sh '''
