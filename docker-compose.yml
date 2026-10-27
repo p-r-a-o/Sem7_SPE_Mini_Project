@@ -15,11 +15,11 @@ services:
       - calculator-net
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"'"]
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/nginx-health"]
       interval: 15s
       timeout: 3s
       retries: 3
-      start_period: 30s
+      start_period: 10s
 
   nginx:
     image: nginx:1.27-alpine
