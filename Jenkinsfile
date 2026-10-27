@@ -22,7 +22,7 @@ pipeline {
 
         IMAGE_TAG            = "${env.BUILD_NUMBER}"
         COMPOSE_PROJECT_NAME = 'calculator'   // fixed name => re-runs update the same stack
-        HOST_PORT            = '8080'
+        HOST_PORT            = '1111'
     }
 
     stages {
