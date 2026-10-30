@@ -66,4 +66,4 @@ curl -i "http://localhost:8080/api/v1/divide?a=1&b=0"
 }
 ```
 
-Division uses 16 significant digits (e.g. `1/3` → `0.3333333333333333`).
+Division uses 16 significant digits (e.g. `1/3` → `0.3333333333333333`). 
